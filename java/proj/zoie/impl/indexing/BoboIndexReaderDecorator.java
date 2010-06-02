@@ -35,7 +35,7 @@ public class BoboIndexReaderDecorator implements IndexReaderDecorator<BoboIndexR
 	    {
     		Thread.currentThread().setContextClassLoader(_classLoader);
             if (facetHandlers !=null){
-                return BoboIndexReader.getInstanceAsSubReader(zoieReader,facetHandlers);
+                return BoboIndexReader.getInstanceAsSubReader(zoieReader,facetHandlers, null);
     		}
             else{
     		  return BoboIndexReader.getInstanceAsSubReader(zoieReader);
