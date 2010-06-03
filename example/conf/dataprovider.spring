@@ -4,13 +4,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<import resource="zoie.spring"/>
-	
-	
-	<bean id="dataprovider" class="proj.zoie.impl.indexing.FileDataProvider">
-		<constructor-arg value="file:${source.directory}"/>
+
+
+	<bean id="dataprovider" class="proj.zoie.example.service.impl.DeletableTestDataProvider">
+	    <constructor-arg value="10000" />
 		<property name="dataConsumer" ref="consumer" />
 	</bean>
-	
+
 	<bean id="dataprovider-mbean" class="proj.zoie.mbean.DataProviderAdmin">
 		<constructor-arg ref="dataprovider" />
 	</bean>
