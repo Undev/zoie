@@ -14,7 +14,6 @@ import com.browseengine.bobo.api.Browsable;
 import com.browseengine.bobo.api.BoboBrowser;
 import com.browseengine.bobo.api.MultiBoboBrowser;
 import com.browseengine.bobo.facets.FacetHandler;
-import com.browseengine.bobo.facets.FacetHandlerFactory;
 
 public class BoboIndexReaderDecorator implements IndexReaderDecorator<BoboIndexReader> {
 	private final List<FacetHandler<?>> facetHandlers;
@@ -52,15 +51,5 @@ public class BoboIndexReaderDecorator implements IndexReaderDecorator<BoboIndexR
 		reader.rewrap(newReader);
 		return reader;
 	}
-
-
-    public static Browsable buildBrowsable(ZoieSystem<BoboIndexReader, Object> zoieSystem) throws IOException {
-
-      List<ZoieIndexReader<BoboIndexReader>> readerList = zoieSystem.getIndexReaders();
-      // this call is very fast and the readers would all be decorated
-      List<BoboIndexReader> boboReaders = ZoieIndexReader.extractDecoratedReaders(readerList);
-      MultiBoboBrowser browser = new MultiBoboBrowser(BoboBrowser.createBrowsables(boboReaders));
-      return browser;
-    }
 
 }
