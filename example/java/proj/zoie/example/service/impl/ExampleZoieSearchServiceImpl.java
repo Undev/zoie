@@ -134,6 +134,7 @@ public class ExampleZoieSearchServiceImpl<R extends IndexReader> implements Zoie
 			  {
 				try {
 					searcher.close();
+					multiReader.close(); //to avoid file handle leakage
 				} catch (IOException e) {
 					log.error(e.getMessage(),e);
 				}
