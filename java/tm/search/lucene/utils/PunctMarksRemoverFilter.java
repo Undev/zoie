@@ -20,7 +20,7 @@ public final class PunctMarksRemoverFilter extends TokenFilter{
 
     private static char[] punctuationMarks;
     static {
-        punctuationMarks = new char[]{'-','(', ')', '[', ']', '_', ',', '`', '\'','=', '>', '<', '"'};
+        punctuationMarks = new char[]{'.','-','(', ')', '[', ']', '_', ',', '`', '\'','=', '>', '<', '"'};
         Arrays.sort(punctuationMarks);
     }
  	/**
